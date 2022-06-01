@@ -16,35 +16,33 @@ import android.speech.SpeechRecognizer;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class article extends AppCompatActivity {
     public static final Integer RecordAudioRequestCode = 1;
     private SpeechRecognizer speechRecognizer;
     private EditText editText;
     private ImageView micButton;
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        if(ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
+        setContentView(R.layout.activity_article);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             checkPermission();
         }
 
-        editText = findViewById(R.id.text);
-        micButton = findViewById(R.id.button);
+        editText = findViewById(R.id.text3);
+        micButton = findViewById(R.id.button3);
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 
         final Intent speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         speechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
 
         speechRecognizer.setRecognitionListener(new RecognitionListener() {
@@ -87,11 +85,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResults(Bundle bundle) {
                 micButton.setImageResource(R.drawable.ic_mic_black_off);
                 ArrayList<String> data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-                if(data.get(0).contains("open")) {
-                    onButtonClick(findViewById(R.id.button));
+                if (data.get(0).contains("return")) {
+                    onButtonClick(findViewById(R.id.button3));
                 } else {
                     editText.setText(data.get(0));
-                };
+                }
+                ;
                 Log.v("Received commands", data.get(0));
             }
 
@@ -109,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
         micButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_UP){
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                     speechRecognizer.stopListening();
                     micButton.setImageResource(R.drawable.ic_mic_black_off);
                 }
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     micButton.setImageResource(R.drawable.ic_mic_black_24dp);
                     Log.v("Start listening", "onTouch");
                     speechRecognizer.startListening(speechRecognizerIntent);
@@ -133,22 +132,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.RECORD_AUDIO},RecordAudioRequestCode);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, RecordAudioRequestCode);
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == RecordAudioRequestCode && grantResults.length > 0 ){
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                Toast.makeText(this,"Permission Granted",Toast.LENGTH_SHORT).show();
+        if (requestCode == RecordAudioRequestCode && grantResults.length > 0) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
         }
+
     }
 
     public void onButtonClick(View view) {
-        Intent intent = new Intent(this, article.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 }

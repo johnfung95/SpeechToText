@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SpeechToText</string>
+    <string name="article_title">Sample Article Title</string>
+    <string name="article_content">This is a sample article content that is to use the voice control feature to navigate into the article</string>
 </resources>
