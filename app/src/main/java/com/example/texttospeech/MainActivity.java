@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -70,19 +71,28 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onEndOfSpeech() {
-
+                editText.setText("Tap to speak");
+                micButton.setImageResource(R.drawable.ic_mic_black_off);
+//                speechRecognizer.cancel();
             }
 
             @Override
             public void onError(int i) {
-
+                editText.setText("Tap to speak");
+                micButton.setImageResource(R.drawable.ic_mic_black_off);
+//                speechRecognizer.cancel();
             }
 
             @Override
             public void onResults(Bundle bundle) {
                 micButton.setImageResource(R.drawable.ic_mic_black_off);
                 ArrayList<String> data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                if(data.get(0).contains("open")) {
+                    editText.setText("Shut Up!");
+                } else {
                     editText.setText(data.get(0));
+                };
+                Log.v("Received commands", data.get(0));
             }
 
             @Override
@@ -104,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
                     micButton.setImageResource(R.drawable.ic_mic_black_24dp);
+                    Log.v("Start listening", "onTouch");
                     speechRecognizer.startListening(speechRecognizerIntent);
                 }
                 return false;
