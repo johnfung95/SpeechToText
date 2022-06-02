@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/TD/Documents/JF_Git/SpeechToText/app/src/main/res/layout/activity_article.xml" value="0.536" />
+        <entry key="..\:/Users/TD/Documents/JF_Git/SpeechToText/app/src/main/res/layout/activity_article.xml" value="0.264" />
+        <entry key="..\:/Users/TD/Documents/JF_Git/SpeechToText/app/src/main/res/layout/activity_article_detail.xml" value="0.264" />
+        <entry key="..\:/Users/TD/Documents/JF_Git/SpeechToText/app/src/main/res/layout/activity_article_detail2.xml" value="0.1875" />
         <entry key="..\:/Users/TD/Documents/JF_Git/SpeechToText/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/TD/Documents/JF_Git/SpeechToText/app/src/main/res/layout/article.xml" value="0.536" />
+        <entry key="..\:/Users/TD/Documents/JF_Git/SpeechToText/app/src/main/res/layout/article_rows.xml" value="0.4" />
       </map>
     </option>
   </component>

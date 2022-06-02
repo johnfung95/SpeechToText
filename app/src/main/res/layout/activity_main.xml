@@ -4,65 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".article">
-
-    <Button
-        android:id="@+id/gotoButton"
-        android:layout_width="121dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onButtonClick"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.842" />
+    tools:context=".article_detail">
 
     <EditText
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tap to Speak"
+        android:id="@+id/menu_textbox"
+        android:layout_width="401dp"
+        android:layout_height="51dp"
+        android:hint="@string/speak_placeholder"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintBottom_toTopOf="@+id/menu_mic_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/articles_section"
+        app:layout_constraintVertical_bias="0.382" />
 
     <ImageView
-        android:id="@+id/button"
+        android:id="@+id/menu_mic_btn"
         android:layout_width="104dp"
         android:layout_height="58dp"
-        android:layout_below="@+id/text"
-        android:layout_alignEnd="@+id/text"
-        android:layout_alignRight="@+id/text"
+        android:layout_below="@id/articles_section"
+        android:layout_alignEnd="@id/articles_section"
         android:layout_alignParentStart="true"
+        android:layout_marginBottom="140dp"
         android:backgroundTint="#F9F8FA"
-        android:paddingRight="10dp"
+        android:contentDescription="@string/mic_name"
         android:src="@drawable/ic_mic_black_off"
-        app:layout_constraintBottom_toTopOf="@+id/gotoButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/articles_section"
+        android:layout_width="403dp"
+        android:layout_height="375dp"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_mic_btn"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.814" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="31dp"
-        android:layout_below="@+id/button"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.668"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.361" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

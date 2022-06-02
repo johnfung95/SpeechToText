@@ -1,5 +1,50 @@
 <resources>
     <string name="app_name">SpeechToText</string>
+    <string name="article_date">Sample date</string>
     <string name="article_title">Sample Article Title</string>
     <string name="article_content">This is a sample article content that is to use the voice control feature to navigate into the article</string>
+    <string name="speak_placeholder">Tap to Speak...</string>
+    <string name="mic_name">mic</string>
+    <string name="last_page_btn_name">Last article</string>
+    <string name="next_page_btn_name">Next article</string>
+
+    <integer-array name="article_id">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </integer-array>
+
+    <string-array name="article_title">
+        <item>Johnny Depp has won the Defamation trial</item>
+        <item>今天是好天氣</item>
+        <item>佛系生活</item>
+        <item>Programming tips</item>
+        <item>Google Play sucks</item>
+    </string-array>
+
+    <string-array name="article_summary">
+        <item>Johnny Depp is awarded with 10.4m for the trial, while Amber heard will be awarded with 2m.</item>
+        <item>今天天氣開朗，但間中有驟雨。</item>
+        <item>既然痛苦，不如躺平。90後廢青生存指南。</item>
+        <item>Practice makes perfect, it is the sole principle. Coding is easy but programming requires more...</item>
+        <item>App Store the best!</item>
+    </string-array>
+
+    <string-array name="article_date">
+        <item>02/06/2022</item>
+        <item>03/06/2022</item>
+        <item>21/04/2022</item>
+        <item>29/03/2021</item>
+        <item>11/02/2021</item>
+    </string-array>
+
+    <string-array name="article_content">
+        <item>Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.Johnny Depp has won.</item>
+        <item>好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。好天氣，好心情。</item>
+        <item>躺平或躺平主義是2021年開始在中華人民共和國流行的網路詞語。指90後和00後年輕人在國內經濟下滑、社會階層固定導致的階層流動困難、社會問題激化的大背景下出於對現實環境的失望而做出的「與其跟隨社會期望堅持奮鬥，不如選擇『躺平』，無欲無求」的處事態度。被視為是對抗社會「內捲化」的一種方式[1][2]。其具體內涵包括「不買房、不買車、不談戀愛、不結婚、不生娃、低水平消費」和「維持最低生存標準，拒絕成為中國資本家賺錢的機器和被中國資本家剝削的奴隸」[3]。躺平被視為是「低慾望青年」對於階級固化的低行動性社會、中產階級萎縮、在職貧窮、資本家對員工的苛刻待遇、勞資關係失諧、以及不合理的社會經濟結構等現況的回應。</item>
+        <item>Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.Programing is an exercise.</item>
+        <item>Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.Apple fan.</item>
+    </string-array>
 </resources>
