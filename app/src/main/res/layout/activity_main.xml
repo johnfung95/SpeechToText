@@ -48,5 +48,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.361" />
 
+    <Button
+        android:id="@+id/crashBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="crash"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/menu_mic_btn"
+        app:layout_constraintTop_toBottomOf="@+id/menu_textbox"
+        app:layout_constraintVertical_bias="0.047" />
+
+    <Button
+        android:id="@+id/exceptionBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="non-fatal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menu_mic_btn"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu_textbox"
+        app:layout_constraintVertical_bias="0.166" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

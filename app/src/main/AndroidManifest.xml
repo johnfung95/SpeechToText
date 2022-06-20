@@ -18,13 +18,17 @@
             android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
-            android:label="Voice Command Demo">
+            android:label="Voice Command Demo"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
     </application>
 
 </manifest>

@@ -19,9 +19,14 @@ import android.text.InputType;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.util.ArrayList;
 
@@ -30,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private SpeechRecognizer speechRecognizer;
     private EditText editText;
     private ImageView micButton;
+    private Button crashBtn, exceptionBtn;
+    private FirebaseCrashlytics crashlytics;
 
     String[] titles, summaries, dates, contents;
     int ids[];
@@ -47,7 +54,34 @@ public class MainActivity extends AppCompatActivity {
         dates = getResources().getStringArray(R.array.article_date);
         contents = getResources().getStringArray(R.array.article_content);
         ids = getResources().getIntArray(R.array.article_id);
+        crashBtn = findViewById(R.id.crashBtn);
+        exceptionBtn = findViewById(R.id.exceptionBtn);
+        crashlytics = FirebaseCrashlytics.getInstance();
 
+        crashBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                crashlytics.log("This is a forced crash error. Please ignore");
+                throw new RuntimeException("Test fatal app Crash"); // Force a crash
+            }
+        });
+
+        exceptionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    throw new Exception("Testing non-fatal error");
+                } catch (Exception e) {
+                    Log.i("Test Error", "errrrrrrr");
+                    crashlytics.log("This is a non-fatal error and should not obstruct app running");
+                    crashlytics.recordException(e);
+                }
+            }
+        });
+
+        //        addContentView(crashBtn, new ViewGroup.LayoutParams(
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.WRAP_CONTENT));
         adapter newAdapter = new adapter(this, titles, summaries, dates, contents, ids);
         articles_section.setAdapter(newAdapter);
         articles_section.setLayoutManager(new LinearLayoutManager(this));
@@ -100,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResults(Bundle bundle) {
+                crashlytics.log("The use of mic");
                 micButton.setImageResource(R.drawable.ic_mic_black_off);
                 ArrayList<String> data = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 String oneTitle, oneDate, oneContent;
